@@ -3,24 +3,31 @@
 using namespace std;
 
 int main() {
-    int c = 0;
+    int c = 1;
     float x, y, a;
-
-    while(1) {
+    while(c) {
         cout<<"Please enter a\n";
-        getNum(a);
+        c = getNum(a);
+        if(c == 0){
+            return 0;
+        }
         cout<<"Please enter x\n";
-        getNum(x);
+        c = getNum(x);
+        if(c == 0){
+            return 0;
+        }
         cout<<"Please enter y\n";
-        getNum(y);
+        c = getNum(y);
+        if(c == 0){
+            return 0;
+        }
         try {
             kardioida k(a, x, y);
             cases(k);
-            break;
+            return 0;
         }
         catch (runtime_error &e) {
             cout << e.what() << endl;
-            continue;
         }
     }
     return 0;
